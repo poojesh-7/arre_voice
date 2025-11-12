@@ -1,0 +1,38 @@
+.heading_sub {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: end; */
+  margin-bottom: -20px;
+}
+
+.heading_sub h1 {
+  margin: 0;
+  font-size: 3rem;
+}
+
+.listing_section {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
+}
+
+@media screen and (max-width: 1028px) {
+  .listing_section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+  }
+  .heading_sub h1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .listing_section {
+    display: flex;
+    flex-direction: column;
+  }
+}

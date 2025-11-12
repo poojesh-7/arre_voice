@@ -1,0 +1,36 @@
+:root {
+  overflow-x: hidden;
+  margin-top: 40px;
+  --page-padding: 6rem;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --page-padding: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-padding: 1.5rem;
+  }
+}
+
+img {
+  border-radius: 5px;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background-color: yellow;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.page {
+  padding-inline: var(--page-padding);
+  padding-block: 2rem;
+  /* max-width: 1600px;  */
+  margin-inline: auto;
+}

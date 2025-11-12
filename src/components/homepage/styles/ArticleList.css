@@ -1,0 +1,26 @@
+.article_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "top-l top-r"
+    "mid-l mid-r"
+    "bottom bottom";
+  gap: 20px;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  /* max-width: 1200px; */
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+.single_cover {
+  grid-column: span 2;
+}
+
+@media screen and (max-width: 500px) {
+  .article_list {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
