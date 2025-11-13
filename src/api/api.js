@@ -1,8 +1,14 @@
 const BASE_URL = "https://dummyjson.com/products";
 
-export async function GetPosts(limit = 10) {
+export async function GetPosts(category, limit = 10) {
+  let url = "";
+  if (category) {
+    url = `${BASE_URL}/category/${category}?limit=${limit}`;
+  } else {
+    url = `${BASE_URL}?limit=${limit}`;
+  }
   try {
-    const response = await fetch(`${BASE_URL}?limit=${limit}`);
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Something went wrong, Status: ${response.status}`);
     }

@@ -4,7 +4,7 @@ import Loader from "../components/ui/Loader";
 import useHttp from "../customhook/useHttp";
 
 const ListingPage = () => {
-  const { loading, data: articlesData, error } = useHttp(() => GetPosts(56));
+  const { loading, data: articlesData, error } = useHttp(() => GetPosts(null,56));
   if (loading) {
     return <Loader />;
   }

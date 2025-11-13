@@ -1,10 +1,13 @@
-import "./styles/FeaturedSection.css";
 import { GetPosts } from "../../api/api";
 import useHttp from "../../customhook/useHttp";
 import ArticleCard from "../ui/ArticleCard";
 import Loader from "../ui/Loader";
 const FeaturedSection = () => {
-  const { loading, data: singleArticle, error } = useHttp(() => GetPosts(1));
+  const {
+    loading,
+    data: singleArticle,
+    error,
+  } = useHttp(() => GetPosts("smartphones", 1));
   if (loading) {
     return <Loader />;
   }

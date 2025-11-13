@@ -10,7 +10,7 @@ const LandingPage = () => {
       <h1>Featured</h1>
       <hr />
       <FeaturedSection />
-      <h1>Latest Stories</h1>
+      <h1>Latest Products</h1>
       <hr />
       <LatestStoriesSection />
     </div>

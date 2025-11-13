@@ -18,7 +18,8 @@ const InsideArticlePage = () => {
     loading: subLoading,
     data: suggestedArticles,
     error: subError,
-  } = useHttp(() => GetPosts(3));
+  } = useHttp(() => GetPosts("groceries", 3));
+
   if (loading) {
     return <Loader />;
   }
@@ -39,13 +40,12 @@ const InsideArticlePage = () => {
   if (!suggestedArticles || suggestedArticles?.length === 0) {
     return <p>No articles available.</p>;
   }
-  console.log(loading);
   return (
     <div className="single_article">
       <h1 className="mobile_title">{singleArticle?.title}</h1>
       <p className="mobile_description">{singleArticle?.description}</p>
       <div className="article_img">
-        <img src={singleArticle?.images} alt="main image" />
+        <img src={singleArticle?.images[0]} alt="main image" />
         <div className="desktop_title_cover">
           <h1 className="desktop_title">{singleArticle?.title}</h1>
         </div>
@@ -103,7 +103,10 @@ const InsideArticlePage = () => {
 
         <div className="article_content">
           <p>{singleArticle?.description}</p>
-          <img src={MountainImage} alt="article image" />
+          <img
+            src={singleArticle?.images[1] || singleArticle?.images[0]}
+            alt="article image"
+          />
           <div className="quote">
             <p>
               How many of these have you heard before? I would like to share the
@@ -143,7 +146,10 @@ const InsideArticlePage = () => {
             than that of the individual.
           </p>
 
-          <img src={MountainImage} alt="article image last" />
+          <img
+            src={singleArticle?.images[2] || singleArticle?.images[0]}
+            alt="article image last"
+          />
         </div>
       </div>
       <h1 className="suggest_heading">What to read next</h1>

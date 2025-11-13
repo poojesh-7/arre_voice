@@ -6,7 +6,7 @@ import Sidebar from "../ui/Sidebar";
 import Loader from "../ui/Loader";
 
 const ArticleList = () => {
-  const { data: articlesData, error, isLoading } = useHttp(() => GetPosts(4));
+  const { data: articlesData, error, isLoading } = useHttp(() => GetPosts('laptops',4));
 
   if (isLoading) {
     return <Loader />;

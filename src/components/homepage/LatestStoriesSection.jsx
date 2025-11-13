@@ -5,7 +5,11 @@ import ArticleCard from "../ui/ArticleCard";
 import Loader from "../ui/Loader";
 
 const LatestStoriesSection = () => {
-  const { data: articlesData, error, isLoading } = useHttp(() => GetPosts(5));
+  const {
+    data: articlesData,
+    error,
+    isLoading,
+  } = useHttp(() => GetPosts("furniture", 5));
 
   if (isLoading) {
     return <Loader />;

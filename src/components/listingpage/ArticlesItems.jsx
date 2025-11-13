@@ -22,9 +22,9 @@ const ArticlesItems = ({ data }) => {
   return (
     <div>
       <div className="heading_sub">
-        <h1>Latest Stories</h1>
+        <h1>Latest Products</h1>
         <p>
-          Home/<b>Latest Stories</b>
+          Home/<b>Latest Products</b>
         </p>
       </div>
       <hr />

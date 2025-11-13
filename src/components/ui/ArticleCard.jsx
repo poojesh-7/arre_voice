@@ -7,7 +7,8 @@ const ArticleCard = ({
   description,
   meta,
   tags,
-  images,
+  // images,
+  thumbnail,
   specialClass,
   specialMediumClass,
   specialSuggestClass,
@@ -46,7 +47,7 @@ const ArticleCard = ({
           <img
             className="article_card_img"
             // src="https://images.unsplash.com/photo-1606788075761-1f92adf0b8f3"
-            src={images[0]}
+            src={thumbnail}
             alt="Vir Das performing"
           />
         </div>
