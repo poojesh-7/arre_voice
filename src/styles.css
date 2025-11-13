@@ -23,7 +23,8 @@ img {
 hr {
   border: none;
   height: 2px;
-  background-color: yellow;
+  
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
   width: 100%;
   margin: 1rem 0;
 }

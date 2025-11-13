@@ -3,12 +3,13 @@ import { GetPosts } from "../../api/api";
 import useHttp from "../../customhook/useHttp";
 import ArticleCard from "../ui/ArticleCard";
 import Sidebar from "../ui/Sidebar";
+import Loader from "../ui/Loader";
 
 const ArticleList = () => {
   const { data: articlesData, error, isLoading } = useHttp(() => GetPosts(4));
 
   if (isLoading) {
-    return <p>Loading articles...</p>;
+    return <Loader />;
   }
 
   if (error) {

@@ -2,12 +2,13 @@ import "./styles/LatestStoriesSection.css";
 import { GetPosts } from "../../api/api";
 import useHttp from "../../customhook/useHttp";
 import ArticleCard from "../ui/ArticleCard";
+import Loader from "../ui/Loader";
 
 const LatestStoriesSection = () => {
   const { data: articlesData, error, isLoading } = useHttp(() => GetPosts(5));
 
   if (isLoading) {
-    return <p>Loading articles...</p>;
+    return <Loader />;
   }
 
   if (error) {

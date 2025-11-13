@@ -6,6 +6,7 @@ import useHttp from "../customhook/useHttp";
 import MountainImage from "../assets/mountain.jpg";
 import ArticleCard from "../components/ui/ArticleCard";
 import { formatDate } from "../utils/utils";
+import Loader from "../components/ui/Loader";
 const InsideArticlePage = () => {
   const { articleId } = useParams();
   const {
@@ -19,7 +20,7 @@ const InsideArticlePage = () => {
     error: subError,
   } = useHttp(() => GetPosts(3));
   if (loading) {
-    return <p>loading . . . . . . . .. . .</p>;
+    return <Loader />;
   }
   if (error) {
     return <p>Error: {error}</p>;
@@ -38,6 +39,7 @@ const InsideArticlePage = () => {
   if (!suggestedArticles || suggestedArticles?.length === 0) {
     return <p>No articles available.</p>;
   }
+  console.log(loading);
   return (
     <div className="single_article">
       <h1 className="mobile_title">{singleArticle?.title}</h1>

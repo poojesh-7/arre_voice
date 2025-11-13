@@ -133,6 +133,11 @@
   grid-gap: 10px;
 }
 
+.hori_layout {
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.208);
+  border-radius: 5px;
+}
+
 @media screen and (max-width: 768px) {
   .full_page_content {
     flex-direction: column;

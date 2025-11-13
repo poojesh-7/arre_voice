@@ -27,7 +27,7 @@ const useHttp = (apiFn, autoFetch = true) => {
     }
   }, []);
 
-  return { data, error, isLoading };
+  return { data, error, loading: isLoading };
 };
 
 export default useHttp;

@@ -6,6 +6,7 @@
   /* width: 100%; */
   max-width: 300px;
   grid-area: top-r;
+  margin-left: auto;
 }
 
 .trending_title {

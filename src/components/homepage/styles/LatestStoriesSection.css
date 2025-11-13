@@ -12,6 +12,9 @@
 }
 
 .mid_card {
+  
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.208);
+    border-radius: 5px;
   align-self: center;
   grid-area: mid;
 }
