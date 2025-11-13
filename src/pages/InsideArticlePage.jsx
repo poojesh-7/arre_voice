@@ -30,7 +30,7 @@ const InsideArticlePage = () => {
     return <p>No articles available.</p>;
   }
   if (subLoading) {
-    return <p>loading . . . . . . . .. . .</p>;
+    return <Loader />;
   }
   if (subError) {
     return <p>Error: {error}</p>;

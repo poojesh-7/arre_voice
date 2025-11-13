@@ -10,6 +10,7 @@ const useHttp = (apiFn, autoFetch = true) => {
       setIsLoading(true);
       setError(null);
       try {
+        setIsLoading(true);
         const result = await apiFn(...args);
         setData(result);
       } catch (err) {
