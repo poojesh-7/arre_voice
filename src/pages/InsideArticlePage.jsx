@@ -9,16 +9,18 @@ import { formatDate } from "../utils/utils";
 import Loader from "../components/ui/Loader";
 const InsideArticlePage = () => {
   const { articleId } = useParams();
+
   const {
     loading,
     data: singleArticle,
     error,
-  } = useHttp(() => GetSinglePost(articleId));
+  } = useHttp(() => GetSinglePost(articleId), [articleId]);
+
   const {
     loading: subLoading,
     data: suggestedArticles,
     error: subError,
-  } = useHttp(() => GetPosts("groceries", 3));
+  } = useHttp(() => GetPosts("groceries", 3), []);
 
   if (loading) {
     return <Loader />;
@@ -152,7 +154,7 @@ const InsideArticlePage = () => {
           />
         </div>
       </div>
-      <h1 className="suggest_heading">What to read next</h1>
+      <h1 className="suggest_heading">What to buy next</h1>
       <hr />
       <div className="suggested">
         {suggestedArticles?.slice(0, 2).map((article, index) => (

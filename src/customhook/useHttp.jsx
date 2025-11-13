@@ -1,32 +1,36 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 
-const useHttp = (apiFn, autoFetch = true) => {
+const useHttp = (apiFn, deps = []) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const sendRequest = useCallback(
-    async (...args) => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        setIsLoading(true);
-        const result = await apiFn(...args);
-        setData(result);
-      } catch (err) {
-        setError(err.message || "Something went wrong!");
-      } finally {
-        setIsLoading(false);
-      }
-    },
-    [apiFn]
-  );
+  const stableApiFn = useRef(apiFn);
+  stableApiFn.current = apiFn;
 
   useEffect(() => {
-    if (autoFetch) {
-      sendRequest();
-    }
-  }, []);
+    let canceled = false;
+
+    const sendRequest = async () => {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const result = await stableApiFn.current();
+        if (!canceled) setData(result);
+      } catch (err) {
+        if (!canceled) setError(err.message || "Something went wrong!");
+      } finally {
+        if (!canceled) setIsLoading(false);
+      }
+    };
+
+    sendRequest();
+
+    return () => {
+      canceled = true;
+    };
+  }, deps);
 
   return { data, error, loading: isLoading };
 };
