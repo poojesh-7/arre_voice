@@ -105,10 +105,12 @@ const InsideArticlePage = () => {
 
         <div className="article_content">
           <p>{singleArticle?.description}</p>
-          <img
-            src={singleArticle?.images[1] || singleArticle?.images[0]}
-            alt="article image"
-          />
+          <div className="article_content_image_cover">
+            <img
+              src={singleArticle?.images[1] || singleArticle?.images[0]}
+              alt="article image"
+            />
+          </div>
           <div className="quote">
             <p>
               How many of these have you heard before? I would like to share the
@@ -147,11 +149,12 @@ const InsideArticlePage = () => {
             the grammar of the resulting language is more simple and regular
             than that of the individual.
           </p>
-
-          <img
-            src={singleArticle?.images[2] || singleArticle?.images[0]}
-            alt="article image last"
-          />
+          <div className="article_content_image_cover">
+            <img
+              src={singleArticle?.images[2] || singleArticle?.images[0]}
+              alt="article image last"
+            />
+          </div>
         </div>
       </div>
       <h1 className="suggest_heading">What to buy next</h1>
